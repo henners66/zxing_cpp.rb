@@ -5,6 +5,7 @@ ZXING_CPP_BUILD = "#{ZXING_CPP}/build"
 
 `cmake --version` rescue raise "zxing_cpp.rb installation requires cmake"
 
+Dir.mkdir ZXING_CPP unless File.exist? ZXING_CPP
 Dir.mkdir ZXING_CPP_BUILD unless File.exist? ZXING_CPP_BUILD
 Dir.chdir ZXING_CPP_BUILD do
   `cmake -DBUILD_SHARED_LIBS:BOOL=OFF -DCMAKE_CXX_FLAGS="-fPIC" ..`
